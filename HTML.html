@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat em Tempo Real</title>
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Sans-Serif;
+      height: 220vh;
+      width: 100%;
+      overflow: auto; /* Evita esconder o conteúdo, mas garante que a rolagem funcione */
+      display: flex;
+      justify-content: center; /* Alinha o conteúdo horizontalmente */
+      align-items: center; /* Alinha o conteúdo verticalmente */
+      flex-direction: column; /* Alinha os itens em coluna */
+      background-color: black;
+    }
+
+    /* Estilos do nav */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 18px;
+      background-color: black;
+      color: #fff;
+      position: fixed; /* O nav vai ficar em cima de outros conteúdos */
+      z-index: 20; /* Garante que o nav fique acima de outros elementos */
+      top: 0;
+      box-shadow: 8px rgb(0,0,0);
+      border-bottom: 2px solid #fff;
+    }
+    
+    #cardapio {
+      display: flex;
+      align-items: center;
+    }
+    
+    #buttto {
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    
+    #cardapio p {
+      margin-left: 15px;
+    }
+    
+    /* Estilos da div que vai cobrir a tela */
+    #conteine-center1 {
+      background-color: black;
+      color: #fff;
+      width: 50%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0%;
+      display: none; /* A div começa oculta */
+      z-index: 10; /* Ela fica atrás do nav */
+      padding-top: 60px; /* Para não cobrir o nav */
+      transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* Animação suave */
+      opacity: 0; /* Inicialmente invisível */
+      visibility: hidden; /* Inicialmente invisível */
+    }
+
+    /* Estilo da imagem fora da div */
+    img {
+      position: absolute;
+      width: 100%;
+      top: 7%;
+      text-align: center;
+      background-color: black;
+      display: flex;
+      justify-content: space-between;
+    }
+      .ima{
+        position: absolute;
+      width: 100%;
+      height: 20vh;
+      top: 7%;
+      text-align: center;
+      background-color: black;
+      display: flex;
+      justify-content: space-between;
+      }
+      
+    }
+    
+    .buttttt {
+      position: absolute;
+      padding: 13px;
+      top: 25%;
+      left: 1%;
+      width: 100%;
+      border: none;
+      color: #fff;
+    }
+
+    .bot {
+      padding: 12px;
+      width: 90%;
+      color: #fff;
+      background-color: black;
+      border: none;
+      border: solid 1px rgb(0, 0, 0);
+      font-size: 17px;
+      font-family: Segoe UI;
+    }
+
+    #fecha {
+      padding: 12px;
+      width: 90%;
+      color: #fff;
+      background-color: black;
+      cursor: pointer;
+      border: solid 1px rgb(0, 0, 0);
+      font-size: 17px;
+      font-family: Segoe UI;
+    }
+#rededsociaid {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  top: 12%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+  position: relative;
+}
+
+#rededsociaid button {
+  padding: 18px 20px;
+  width: 98%;
+  font-size: 16px;
+  border-radius: 12px;
+  color: #fff;
+  background-color: black; /* Para destacar os botões */
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+footer{
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  top: 12%;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+  position: relative;
+}
+
+#rededsociaid button:last-child {
+  margin-bottom: 50px;
+}
+
+.saldo2{
+  position: absolute;
+  padding:10px ;
+  top: 27%;
+  left: 60%;
+  font-size: 14px;
+  color: #fff;
+  background-color: black;
+  border: none solid 1px rgb(0, 0, 0);;
+}
+.saldo1{
+  position: absolute;
+  padding:10px ;
+  top: 27%;
+  left: 78%;
+  font-size: 14px;
+  background-color: black;
+  color: #fff;
+  border: none solid 1px rgb(0, 0, 0);;
+  cursor: pointer;
+}
+    </style>
+</head>
+<body>
+  <!-- Menu de navegação -->
+  <nav>
+    <label id="cardapio">
+      <button id="buttto">=</button>
+      <p>linux</p>
+    </label>
+   <div class="saldo">
+          <label>
+        <button class="saldo2">R$ 00,00</button>
+        <button class="saldo1">Adicionar</button>
+        </div>
+      </label>
+    <
+  </nav>
+
+  <!-- Imagem fora da div -->
+  <div class="ima">
+    <img src="Munu.jpg" alt="Imagem">
+  </div>
+
+  <!-- Div que será exibida/ocultada -->
+  <div id="conteine-center1">
+    <br><br>
+    <div class="buttttt">
+      <button class="bot">Telas feks</button>
+      <br>
+      <button class="bot">SITES</button>
+      <button class="bot">NOTAS</button>
+      <br>
+      <button class="bot">PUXADAS DADOS</button>
+      <button class="bot">MATRIZ CC/GG</button>
+      <br>
+      <button class="bot">VIP</button>
+      <button class="bot">DADOS VAZADOS</button>
+      <br>
+      <button class="bot">HACK INSTA</button>
+      <button class="bot">WIFI-HACK APK </button>
+      <br>
+      <button class="bot">MENU HACK</button>
+      <button class="bot">DICAS PARA INICIANTE</button>
+      <br>
+      <button class="bot">GERAR GIFT CARD </button>
+      <button class="bot">NUMERO FEK</button>
+      <br>
+      <button class="bot">18+</button>
+      <button class="bot">CURSOS</button>
+      <br>
+      <button class="bot">PROGRAMAÇÃO</button>
+      <button class="bot">INICIANTE COMEÇA AQUI</button>
+      <br>
+      <button class="bot">BOT,S</button>
+      <br>
+      <button id="fecha">FECHAR MENU</button>
+    </div>
+  </div>
+   <!-- Div com os botões das redes sociais -->
+<div id="rededsociaid">
+  <button id="bty">Telas feks</button>
+  <button id="bty">SITES</button>
+  <button id="bty">NOTAS</button>
+  <button id="bty">PUXADAS DADOS</button>
+  <button id="bty">MATRIZ CC/GG</button>
+  <button id="bty">VIP</button>
+  <button id="bty">DADOS VAZADOS</button>
+  <button id="bty">HACK INSTA</button>
+  <button id="bty">WIFI-HACK APK </button>
+  <button id="bty">MENU HACK</button>
+  <button id="bty">DICAS PARA INICIANTE</button>
+  <button id="bty">GERAR GIFT CARD</button>
+  <button id="bty">NUMERO FEK</button>
+  <button id="bty">18+</button>
+  <button id="bty">CURSOS</button>
+  <button id="bty">PROGRAMAÇÃO</button>
+  <button id="bty">INICIANTE COMEÇA AQUI</button>
+  <button id="bty">BOT,S</button>
+  <button id="bty">PIX FALSO</button>
+  <button id="bty">BLIDAGEM DE NUMERO</button>
+  <button id="bty">BAN NUMERO</button>
+  <button id="bty">SMS</button>
+  <button id="bty">CHEKOUT FEK</button>
+  <button id="bty">SIGUIDORES INST</button>
+</div>
+
+
+<footer class="gg">
+  <p>© 2025. painel do 7 ! criado por Sidne </p>
+</footer>
+
+
+  <script>
+    const toggleButton = document.getElementById("buttto");
+    const container = document.getElementById("conteine-center1");
+
+    // Evento para mostrar/ocultar a div
+    toggleButton.addEventListener("click", function() {
+      if (container.style.display === "none" || container.style.display === "") {
+        container.style.display = "block";  // Torna a div visível
+        setTimeout(() => {
+          container.style.opacity = "1";  // Transição de opacidade
+          container.style.visibility = "visible";  // Torna a div visível
+        }, 10);
+      } else {
+        container.style.opacity = "0";  // Desaparece com transição
+        container.style.visibility = "hidden";  // Torna invisível
+        setTimeout(() => {
+          container.style.display = "none";  // Oculta a div após a transição
+        }, 300);
+      }
+    });
+
+    // Evento para fechar a div
+    const fecha = document.getElementById("fecha");
+    fecha.addEventListener("click", function() {
+      container.style.opacity = "0";  // Desaparece com transição
+      container.style.visibility = "hidden";  // Torna invisível
+      setTimeout(() => {
+        container.style.display = "none";  // Oculta a div após a transição
+      }, 300);
+    });
+  </script>
+</body>
+</html>
